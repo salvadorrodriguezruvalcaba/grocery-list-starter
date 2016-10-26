@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grocery List</title>
+
+  <link rel="stylesheet" type="text/css" href="/bootstrap.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700'>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+
+</head>
+<body>
+
+  <section class="container col-lg-12 col-md-12">
+    <h1>Grocery List</h1>
+    <h3>Please register your Products in the form below.</h3>
+    <br>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+      <form method="POST" action="/groceries">
+        Product Code: <br>
+        <input type="text" name="code"><br>
+        Name    :<br>
+        <input type="text" name="name"><br>
+        Quantity    : <br>
+        <input type="text" name="quantity"><br>
+        $Price       : <br>
+        <input type="text" name="price"><br>
+        <input type="submit" value="Submit">
+      </form>
+      <br>
+
+    </div>
+
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+        <div class="box_right col-lg-1 col-md-1 col-sm-1 col-xs-1">
+           <tr>
+            <th style="text-align:center;  font-size:13px;">Code</th><br>
+            <% groceries.forEach(function(grocery) { %>
+                <td class="tdName"><%= grocery.code %></td>
+                <br>
+            <% }) %>
+          </tr>
+        </div>
+
+        <div class="box_right col-lg-3 col-md-3  col-sm-3 col-xs-3">
+          <tr>
+            <th>Name</th><br>
+            <% groceries.forEach(function(grocery) { %>
+              <td class="tdAttendent"><%= grocery.name %></td>
+              <br>
+            <% }) %>
+          </tr>
+        </div>
+
+        <div class="box_right col-lg-1 col-md-1  col-sm-1 col-xs-1">
+          <tr>
+            <th>Quantity</th><br>
+            <% groceries.forEach(function(grocery) { %>
+              <td class="tdAttendent"><%= grocery.quantity %></td>
+              <br>
+            <% }) %>
+          </tr>
+        </div>
+
+        <div class="box_right col-lg-1 col-md-1  col-sm-1 col-xs-1">
+          <tr>
+            <th>$ Price</th><br>
+            <% groceries.forEach(function(grocery) { %>
+              <td class="tdAttendent"><%= grocery.price %></td>
+              <br>
+            <% }) %>
+          </tr>
+        </div>
+
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+</body>
+</html>
